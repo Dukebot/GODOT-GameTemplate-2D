@@ -1,7 +1,7 @@
 class_name Character
 extends KinematicBody2D
 
-onready var movement : MovementComponent = $MovementComponent
+onready var movement : TopDownMovementComponent = $TopDownMovementComponent
 onready var health : HealthComponent = $HealthComponent
 
 
