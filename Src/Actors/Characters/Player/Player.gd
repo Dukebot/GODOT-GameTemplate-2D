@@ -8,7 +8,7 @@ onready var animation_state: AnimationNodeStateMachinePlayback = animation_tree[
 
 func _physics_process(delta):
 	var direction = get_input_direction()
-	move(direction, delta)
+	movement.move(direction, delta)
 	animate(direction)
 
 func get_input_direction() -> Vector2:

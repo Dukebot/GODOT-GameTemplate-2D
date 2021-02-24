@@ -1,15 +1,12 @@
 class_name Character
 extends KinematicBody2D
 
-export var acceleration: float = 2000
-export var friction: float = 2000
-export var max_speed: float = 300
+onready var movement : MovementComponent = $MovementComponent
+onready var health : HealthComponent = $HealthComponent
 
-var linear_velocity: Vector2 = Vector2()
 
-func move(direction: Vector2, delta: float):
-	if direction != Vector2.ZERO:
-		linear_velocity = linear_velocity.move_toward(direction * max_speed, acceleration * delta)
-	else:
-		linear_velocity = linear_velocity.move_toward(Vector2.ZERO, friction * delta)
-	linear_velocity = move_and_slide(linear_velocity)
+func _on_Hurtbox_area_entered(area):
+	health.take_damage(area.damage)
+
+func _on_HealthComponent_no_health():
+	queue_free()
