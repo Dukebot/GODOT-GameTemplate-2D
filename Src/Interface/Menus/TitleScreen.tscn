@@ -33,7 +33,6 @@ text = "Press ENTER to start"
 [node name="AnimatedSprite" type="AnimatedSprite" parent="." index="3"]
 position = Vector2( 512, 328 )
 frames = SubResource( 1 )
-frame = 2
 playing = true
 
 [node name="BackgroundMusic" parent="." index="4"]

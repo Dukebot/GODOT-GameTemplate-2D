@@ -19,6 +19,16 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Src/Components/HealthComponent.gd"
 }, {
+"base": "Area2D",
+"class": "InteractionArea",
+"language": "GDScript",
+"path": "res://Src/Components/InteractionAreas/InteractionArea.gd"
+}, {
+"base": "Area2D",
+"class": "InteractionDetector",
+"language": "GDScript",
+"path": "res://Src/Components/InteractionAreas/InteractionDetector.gd"
+}, {
 "base": "Control",
 "class": "Menu",
 "language": "GDScript",
@@ -29,7 +39,7 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Src/Actors/Characters/Player/Player.gd"
 }, {
-"base": "Reference",
+"base": "Node",
 "class": "SideScrollerMovementComponent",
 "language": "GDScript",
 "path": "res://Src/Components/Movement/SideScrollerMovementComponent.gd"
@@ -39,7 +49,7 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Src/Interface/Menus/TitleScreen.gd"
 }, {
-"base": "Reference",
+"base": "Node",
 "class": "TopDownMovementComponent",
 "language": "GDScript",
 "path": "res://Src/Components/Movement/TopDownMovementComponent.gd"
@@ -47,6 +57,8 @@ _global_script_classes=[ {
 _global_script_class_icons={
 "Character": "",
 "HealthComponent": "",
+"InteractionArea": "",
+"InteractionDetector": "",
 "Menu": "",
 "Player": "",
 "SideScrollerMovementComponent": "",
@@ -64,6 +76,11 @@ config/icon="res://icon.png"
 
 Globals="*res://Src/Singletons/Globals.gd"
 Utils="*res://Src/Singletons/Utils.gd"
+
+[display]
+
+window/stretch/mode="2d"
+window/stretch/aspect="keep"
 
 [importer_defaults]
 
