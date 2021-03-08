@@ -9,7 +9,7 @@
 config_version=4
 
 _global_script_classes=[ {
-"base": "KinematicBody2D",
+"base": "TopDownCharacter",
 "class": "Character",
 "language": "GDScript",
 "path": "res://Src/Actors/Characters/Character.gd"
@@ -39,20 +39,20 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Src/Actors/Characters/Player/Player.gd"
 }, {
-"base": "Node",
-"class": "SideScrollerMovementComponent",
+"base": "KinematicBody",
+"class": "SideScrollerCharacter",
 "language": "GDScript",
-"path": "res://Src/Components/Movement/SideScrollerMovementComponent.gd"
+"path": "res://Src/Actors/Characters/SideScrollerCharacter.gd"
 }, {
 "base": "Menu",
 "class": "TitleScreen",
 "language": "GDScript",
 "path": "res://Src/Interface/Menus/TitleScreen.gd"
 }, {
-"base": "Node",
-"class": "TopDownMovementComponent",
+"base": "KinematicBody2D",
+"class": "TopDownCharacter",
 "language": "GDScript",
-"path": "res://Src/Components/Movement/TopDownMovementComponent.gd"
+"path": "res://Src/Actors/Characters/TopDownCharacter.gd"
 } ]
 _global_script_class_icons={
 "Character": "",
@@ -61,9 +61,9 @@ _global_script_class_icons={
 "InteractionDetector": "",
 "Menu": "",
 "Player": "",
-"SideScrollerMovementComponent": "",
+"SideScrollerCharacter": "",
 "TitleScreen": "",
-"TopDownMovementComponent": ""
+"TopDownCharacter": ""
 }
 
 [application]
@@ -74,6 +74,7 @@ config/icon="res://icon.png"
 
 [autoload]
 
+Constants="*res://Src/Singletons/Constants.gd"
 Globals="*res://Src/Singletons/Globals.gd"
 Utils="*res://Src/Singletons/Utils.gd"
 

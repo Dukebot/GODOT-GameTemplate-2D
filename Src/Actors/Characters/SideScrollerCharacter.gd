@@ -1,5 +1,6 @@
-class_name SideScrollerMovementComponent
-extends Node
+class_name SideScrollerCharacter
+extends KinematicBody
+
 
 const UP = Vector2(0, -1)
 
