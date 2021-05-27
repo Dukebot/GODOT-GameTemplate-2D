@@ -42,7 +42,12 @@ _global_script_classes=[ {
 "base": "Node2D",
 "class": "Map",
 "language": "GDScript",
-"path": "res://Src/Maps/Map.gd"
+"path": "res://Src/Map/Map.gd"
+}, {
+"base": "Area2D",
+"class": "MapTeleporter",
+"language": "GDScript",
+"path": "res://Src/Actors/Areas/MapTeleporter.gd"
 }, {
 "base": "Control",
 "class": "Menu",
@@ -77,6 +82,7 @@ _global_script_class_icons={
 "InteractionArea": "",
 "InteractionDetector": "",
 "Map": "",
+"MapTeleporter": "",
 "Menu": "",
 "Player": "",
 "SideScrollerCharacter": "",
