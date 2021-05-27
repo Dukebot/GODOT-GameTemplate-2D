@@ -47,3 +47,13 @@ static func get_total_weight(weight_array: Array) -> float:
 	for i in weight_array.size():
 		total += weight_array[i]
 	return total
+
+
+#JSON
+static func get_json_result(json_path: String):
+	var file = File.new()
+	file.open(json_path, file.READ)
+	var json_string = file.get_as_text()
+	var json_result = JSON.parse(json_string).result
+	file.close()
+	return json_result
