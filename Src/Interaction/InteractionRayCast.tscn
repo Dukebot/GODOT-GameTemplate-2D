@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Src/Interaction/InteractionRayCast.gd" type="Script" id=1]
+
+[node name="InteractionRayCast" type="RayCast2D"]
+enabled = true
+cast_to = Vector2( 0, 10 )
+collision_mask = 8
+collide_with_areas = true
+collide_with_bodies = false
+script = ExtResource( 1 )

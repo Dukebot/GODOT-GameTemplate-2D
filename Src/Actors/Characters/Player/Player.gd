@@ -1,5 +1,19 @@
-class_name Player
-extends Character
+class_name Player extends Character
+
+
+onready var interaction_ray_cast = $InteractionRayCast
+
+
+func _input(event):
+	if Input.is_action_pressed("interact"):
+		interaction_ray_cast.interact()
+
+
+func _physics_process(delta):
+	var direction = get_input_direction()
+	move(direction, delta)
+	animate(direction)
+	interaction_ray_cast.set_direction(direction)
 
 
 func get_input_direction() -> Vector2:

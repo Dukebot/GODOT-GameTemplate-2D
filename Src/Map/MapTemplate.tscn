@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Src/Map/Map.gd" type="Script" id=1]
 [ext_resource path="res://Src/Actors/Characters/Player/Player.tscn" type="PackedScene" id=2]
@@ -8,6 +8,8 @@
 [ext_resource path="res://Assets/GFX/Tiles/Corner.png" type="Texture" id=6]
 [ext_resource path="res://Assets/GFX/Tiles/Center.png" type="Texture" id=7]
 [ext_resource path="res://Assets/GFX/Tiles/Side.png" type="Texture" id=8]
+[ext_resource path="res://Src/Interface/MessageBox/MessageBox.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Src/Interaction/Interaction.tscn" type="PackedScene" id=10]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 0, 0, 0, 0, 0, 0, 0, 0 )
@@ -110,9 +112,6 @@ tile_data = PoolIntArray( 0, -1073741824, 0, 1, 1, 0, 2, 1, 0, 3, 1, 0, 4, 1, 0,
 
 [node name="Player" parent="YSort/Characters" instance=ExtResource( 2 )]
 position = Vector2( 183.138, 199.787 )
-acceleration = 5000.0
-friction = 5000.0
-max_speed = 250.0
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="YSort/Characters/Player"]
 remote_path = NodePath("../../../Camera2D")
@@ -121,6 +120,9 @@ remote_path = NodePath("../../../Camera2D")
 
 [node name="Areas" type="Node2D" parent="."]
 
+[node name="Interaction" parent="Areas" instance=ExtResource( 10 )]
+message = "test"
+
 [node name="BackgroundMusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 4 )
 autoplay = true
@@ -128,3 +130,7 @@ autoplay = true
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="ScreenTransitionRect" parent="CanvasLayer" instance=ExtResource( 3 )]
+visible = false
+
+[node name="MessageBox" parent="CanvasLayer" instance=ExtResource( 9 )]
+visible = false
