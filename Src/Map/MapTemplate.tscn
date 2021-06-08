@@ -9,7 +9,7 @@
 [ext_resource path="res://Assets/GFX/Tiles/Center.png" type="Texture" id=7]
 [ext_resource path="res://Assets/GFX/Tiles/Side.png" type="Texture" id=8]
 [ext_resource path="res://Src/Interface/MessageBox/MessageBox.tscn" type="PackedScene" id=9]
-[ext_resource path="res://Src/Interaction/Interaction.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Src/Components/Interaction/Interaction.tscn" type="PackedScene" id=10]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 0, 0, 0, 0, 0, 0, 0, 0 )
