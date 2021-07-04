@@ -75,14 +75,24 @@ _global_script_classes=[ {
 "path": "res://Src/Interface/MessageBox/MessageBox.gd"
 }, {
 "base": "Character",
+"class": "NPC",
+"language": "GDScript",
+"path": "res://Src/Actors/Characters/NPCs/NPC.gd"
+}, {
+"base": "Character",
 "class": "Player",
 "language": "GDScript",
 "path": "res://Src/Actors/Characters/Player/Player.gd"
 }, {
-"base": "KinematicBody",
-"class": "SideScrollerCharacter",
+"base": "ColorRect",
+"class": "ScreenTransitionRect",
 "language": "GDScript",
-"path": "res://Src/Actors/Characters/SideScrollerCharacter.gd"
+"path": "res://Src/Interface/ScreenTransitionRect.gd"
+}, {
+"base": "Node",
+"class": "SideScrollerMovement",
+"language": "GDScript",
+"path": "res://Src/Components/Movement/SideScrollerMovement.gd"
 }, {
 "base": "Menu",
 "class": "TitleScreen",
@@ -93,6 +103,11 @@ _global_script_classes=[ {
 "class": "TopDownCharacter",
 "language": "GDScript",
 "path": "res://Src/Actors/Characters/TopDownCharacter.gd"
+}, {
+"base": "Node",
+"class": "TopDownMovement",
+"language": "GDScript",
+"path": "res://Src/Components/Movement/TopDownMovement.gd"
 } ]
 _global_script_class_icons={
 "Animator": "",
@@ -108,10 +123,13 @@ _global_script_class_icons={
 "MapTeleporter": "",
 "Menu": "",
 "MessageBox": "",
+"NPC": "",
 "Player": "",
-"SideScrollerCharacter": "",
+"ScreenTransitionRect": "",
+"SideScrollerMovement": "",
 "TitleScreen": "",
-"TopDownCharacter": ""
+"TopDownCharacter": "",
+"TopDownMovement": ""
 }
 
 [application]

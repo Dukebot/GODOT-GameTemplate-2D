@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://Src/Map/Map.gd" type="Script" id=1]
 [ext_resource path="res://Src/Actors/Characters/Player/Player.tscn" type="PackedScene" id=2]
@@ -10,6 +10,8 @@
 [ext_resource path="res://Assets/GFX/Tiles/Side.png" type="Texture" id=8]
 [ext_resource path="res://Src/Interface/MessageBox/MessageBox.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Src/Components/Interaction/Interaction.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Src/Actors/Areas/DialogueTrigger.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Src/Components/DialogueComponent.gd" type="Script" id=12]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 0, 0, 0, 0, 0, 0, 0, 0 )
@@ -75,6 +77,9 @@ points = PoolVector2Array( 0, 0, 0, 0, 0, 0, 0, 0 )
 2/shapes = [  ]
 2/z_index = 0
 
+[sub_resource type="CircleShape2D" id=4]
+radius = 29.0746
+
 [node name="MapTemplate" type="Node2D"]
 script = ExtResource( 1 )
 
@@ -116,12 +121,21 @@ position = Vector2( 183.138, 199.787 )
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="YSort/Characters/Player"]
 remote_path = NodePath("../../../Camera2D")
 
-[node name="StaticObjects" type="YSort" parent="YSort"]
+[node name="StaticBodies" type="YSort" parent="YSort"]
 
 [node name="Areas" type="Node2D" parent="."]
 
 [node name="Interaction" parent="Areas" instance=ExtResource( 10 )]
 message = "test"
+
+[node name="DialogueTrigger" parent="Areas" instance=ExtResource( 11 )]
+position = Vector2( 127.423, 103.826 )
+
+[node name="CollisionShape2D" parent="Areas/DialogueTrigger" index="0"]
+shape = SubResource( 4 )
+
+[node name="DialogueComponent" type="Node" parent="Areas/DialogueTrigger"]
+script = ExtResource( 12 )
 
 [node name="BackgroundMusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 4 )
@@ -134,3 +148,5 @@ visible = false
 
 [node name="MessageBox" parent="CanvasLayer" instance=ExtResource( 9 )]
 visible = false
+
+[editable path="Areas/DialogueTrigger"]

@@ -1,3 +1,2 @@
-class_name Enemy
-extends Character
+class_name Enemy extends Character
 

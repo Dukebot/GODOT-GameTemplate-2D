@@ -1,6 +1,4 @@
-class_name SideScrollerCharacter
-extends KinematicBody
-
+class_name SideScrollerMovement extends Node
 
 const UP = Vector2(0, -1)
 
@@ -13,7 +11,7 @@ export var JUMP_SPEED = 700
 
 var motion = Vector2()
 
-onready var parent = get_parent()
+onready var kinematic_body: KinematicBody2D = get_parent()
 
 
 #Public
@@ -24,7 +22,7 @@ func stop():
 func move(direction: int, jumped: bool, delta: float):
 	horizontal_movement(direction, delta)
 	vertical_movement(direction, jumped, delta)
-	motion = parent.move_and_slide(motion, UP)
+	motion = kinematic_body.move_and_slide(motion, UP)
 
 
 #Private
@@ -46,7 +44,7 @@ func horizontal_movement(direction, delta):
 
 
 func vertical_movement(direction, jumped, delta):
-	if not parent.is_on_floor():
+	if not kinematic_body.is_on_floor():
 		motion.y += GRAVITY * delta
 	else:
 		motion.y = 0

@@ -5,7 +5,7 @@ onready var interaction_ray_cast = $InteractionRayCast
 
 
 func _input(event):
-	if Input.is_action_pressed("interact"):
+	if event.is_action_pressed("interact"):
 		interaction_ray_cast.interact()
 
 

@@ -1,6 +1,12 @@
 class_name InteractionRayCast extends RayCast2D
 
+export var ray_length: float = 10
+
 var interaction_area: InteractionArea
+
+
+func _ready():
+	set_direction(Vector2.DOWN)
 
 
 func _process(delta):
@@ -21,10 +27,8 @@ func _process(delta):
 func interact():
 	if interaction_area:
 		interaction_area.interact(owner)
-	else:
-		print("Nothing to interact...")
 
 
 func set_direction(direction: Vector2):
 	if direction != Vector2.ZERO:
-		cast_to = direction * 10
+		cast_to = direction * ray_length

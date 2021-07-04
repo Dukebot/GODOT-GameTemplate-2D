@@ -1,6 +1,6 @@
 extends Area2D
 
-onready var dialogue_component = find_node("DialogueComponent") as DialogueComponent
+onready var dialogue_component: DialogueComponent = get_node("DialogueComponent")
 
 
 func _ready():
@@ -10,7 +10,6 @@ func _ready():
 
 func _on_DialogueTrigger_body_entered(body):
 	dialogue_component.start_dialogue()
-	dialogue_component.show_dialogue_text()
 
 
 func _on_dialogue_component_dialogue_ended():

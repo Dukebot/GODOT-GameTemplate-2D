@@ -1,0 +1,6 @@
+{
+	"test": [
+		["player", "Hello this is a test dialogue..."],
+		["player", "Hmmm... ok this test is over..."]
+	]
+}
