@@ -16,7 +16,7 @@ func get_random_direction() -> Vector2:
 func shuffleList(list: Array) -> Array:
 	var shuffledList = [] 
 	var indexList = range(list.size())
-	for i in range(list.size()):
+	for _i in range(list.size()):
 		var x = randi() % indexList.size()
 		shuffledList.append( list[indexList[x]] )
 		indexList.remove(x)
