@@ -17,7 +17,7 @@ var current_dialogue_index: int = 0
 func _ready():
 	add_to_group("dialogue_component")
 	set_process_input(false)
-	load_dialogue()
+	load_dialogue(dialogue_id)
 
 
 func _input(event):
@@ -28,7 +28,8 @@ func _input(event):
 			show_dialogue_text()
 
 
-func load_dialogue():
+func load_dialogue(_dialogue_id: String):
+	dialogue_id = _dialogue_id
 	var json_result = Utils.get_json_result(JSON_DIALOGUE_PATH + dialogue_file_name)
 	dialogue_data = json_result[dialogue_id]
 

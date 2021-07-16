@@ -1,11 +1,12 @@
 class_name MapTeleporter extends Area2D
 
-const MAP_PATH = "res://Src/Map/Maps/"
+onready var map_loader: MapLoader = get_node("MapLoader")
+onready var collision: CollisionShape2D = get_node("CollisionShape2D")
 
-export var map_name := ""
-export var position_name := ""
-
-onready var collision = $CollisionShape2D
 
 func _on_MapTeleporter_body_entered(player):
-	Events.emit_signal("change_scene", MAP_PATH + map_name + ".tscn")
+	map_loader.load_map()
+
+
+func set_enabled(value: bool) -> void:
+	collision.set_deferred("disabled", not value)
