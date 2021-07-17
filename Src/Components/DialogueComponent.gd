@@ -4,8 +4,6 @@ signal dialogue_started
 signal dialogue_ended
 signal show_dialogue_text(speaker_name, text)
 
-const JSON_DIALOGUE_PATH = "res://Json/Dialogue/"
-
 export (String) var dialogue_file_name = "dialogues.json"
 export (String) var dialogue_id = "test"
 
@@ -30,7 +28,8 @@ func _input(event):
 
 func load_dialogue(_dialogue_id: String):
 	dialogue_id = _dialogue_id
-	var json_result = Utils.get_json_result(JSON_DIALOGUE_PATH + dialogue_file_name)
+	var dialogue_file_path = Globals.JSON_PATH + "Dialogue/" + dialogue_file_name
+	var json_result = Utils.get_json_result(dialogue_file_path)
 	dialogue_data = json_result[dialogue_id]
 
 

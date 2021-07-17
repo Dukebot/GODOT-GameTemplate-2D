@@ -14,18 +14,15 @@ var motion = Vector2()
 onready var kinematic_body: KinematicBody2D = get_parent()
 
 
-#Public
-
 func stop():
 	motion = Vector2()
+
 
 func move(direction: int, jumped: bool, delta: float):
 	horizontal_movement(direction, delta)
 	vertical_movement(direction, jumped, delta)
 	motion = kinematic_body.move_and_slide(motion, UP)
 
-
-#Private
 
 func horizontal_movement(direction, delta):
 	if direction > 0:

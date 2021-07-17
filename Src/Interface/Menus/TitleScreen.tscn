@@ -2,23 +2,36 @@
 
 [ext_resource path="res://Src/Interface/Menu.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Src/Interface/Menus/TitleScreen.gd" type="Script" id=2]
-[ext_resource path="res://Src/Interface/Labels/DefaultText.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Assets/Sound/SFX/Select.wav" type="AudioStream" id=3]
 [ext_resource path="res://Src/Interface/ScreenTransitionRect.tscn" type="PackedScene" id=9]
 
 [node name="TitleScreen" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
 
-[node name="TitleText" parent="." index="1"]
-text = "Game Title"
+[node name="Title" parent="." index="1"]
+text = "Game title"
 
-[node name="DefaultText" parent="." index="2" instance=ExtResource( 3 )]
-margin_left = 560.0
-margin_top = 560.0
-margin_right = 737.0
-margin_bottom = 581.0
-text = "Press ENTER to start"
+[node name="StartGame" type="Label" parent="." index="2"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -240.0
+margin_top = -272.0
+margin_right = 240.0
+margin_bottom = -208.0
+text = "Press enter to start game"
+align = 1
+valign = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
-[node name="ScreenTransitionRect" parent="." index="4" instance=ExtResource( 9 )]
+[node name="ScreenTransitionRect" parent="." index="3" instance=ExtResource( 9 )]
 visible = false
 margin_top = -2.0
 margin_bottom = -2.0
+
+[node name="SelectSound" type="AudioStreamPlayer" parent="." index="5"]
+stream = ExtResource( 3 )

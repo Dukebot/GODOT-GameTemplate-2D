@@ -1,5 +1,4 @@
-class_name TopDownCharacter
-extends KinematicBody2D
+class_name TopDownCharacter extends KinematicBody2D
 
 export var acceleration: float = 2000
 export var friction: float = 2000

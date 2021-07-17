@@ -4,13 +4,17 @@ extends Node
 func format_float(value: float) -> float: 
 	return stepify(value, 0.01)
 
+
 #Get random array index
 func get_random_index(array: Array) -> int:
 	var rand_index : int = randi() % array.size()
 	return rand_index
 
+
+#Get random direction vector
 func get_random_direction() -> Vector2:
 	return Vector2.RIGHT.rotated(deg2rad(rand_range(0, 360)))
+
 
 #Lists
 func shuffleList(list: Array) -> Array:
@@ -21,6 +25,7 @@ func shuffleList(list: Array) -> Array:
 		shuffledList.append( list[indexList[x]] )
 		indexList.remove(x)
 	return shuffledList
+
 
 #Collision
 func restart_collision_shape(collision_shape: CollisionShape2D) -> void:

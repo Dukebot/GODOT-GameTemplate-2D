@@ -34,11 +34,6 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Src/Components/HealthComponent.gd"
 }, {
-"base": "Node2D",
-"class": "Interaction",
-"language": "GDScript",
-"path": "res://Src/Components/Interaction/Interaction.gd"
-}, {
 "base": "Area2D",
 "class": "InteractionArea",
 "language": "GDScript",
@@ -120,7 +115,6 @@ _global_script_class_icons={
 "DialogueComponent": "",
 "Enemy": "",
 "HealthComponent": "",
-"Interaction": "",
 "InteractionArea": "",
 "InteractionDetector": "",
 "InteractionRayCast": "",
@@ -149,7 +143,6 @@ config/icon="res://icon.png"
 Globals="*res://Src/Singletons/Globals.gd"
 GameSave="*res://Src/Singletons/GameSave.gd"
 Utils="*res://Src/Singletons/Utils.gd"
-Events="*res://Src/Singletons/Events.gd"
 
 [display]
 
@@ -157,6 +150,10 @@ window/size/width=1280
 window/size/height=720
 window/stretch/mode="2d"
 window/stretch/aspect="keep"
+
+[gui]
+
+theme/custom_font="res://Src/Resources/Fonts/DefaultFont_16.tres"
 
 [importer_defaults]
 
