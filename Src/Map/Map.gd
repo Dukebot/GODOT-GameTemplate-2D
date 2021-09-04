@@ -18,7 +18,6 @@ func _ready():
 	for dialogue_component in get_tree().get_nodes_in_group("dialogue_component"):
 		dialogue_component.connect("dialogue_started", self, "_on_dialogue_started")
 		dialogue_component.connect("dialogue_ended", self, "_on_dialogue_ended")
-		dialogue_component.connect("show_dialogue_text", self, "_on_show_dialogue_text")
 
 
 func _on_load_map(scene_path: String):
@@ -32,19 +31,11 @@ func _on_dialogue_ended() -> void:
 	attach_controls()
 	message_box.hide_message()
 
-func _on_show_dialogue_text(speaker_name: String, text: String) -> void:
-	message_box.show_message(text)
-
 
 func dettach_controls():
 	for character in characters.get_children():
-		character.set_process_input(false)
-		character.set_process(false)
-		character.set_physics_process(false)
-
+		character.set_controls_attached(false)
 
 func attach_controls():
 	for character in characters.get_children():
-		character.set_process_input(true)
-		character.set_process(true)
-		character.set_physics_process(true)
+		character.set_controls_attached(true)

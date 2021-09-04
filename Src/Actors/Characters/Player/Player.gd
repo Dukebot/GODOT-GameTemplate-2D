@@ -9,7 +9,7 @@ func _input(event):
 		interaction_ray_cast.interact()
 
 
-func _physics_process(delta):
+func physics_process(delta):
 	var direction = get_input_direction()
 	move(direction, delta)
 	animate(direction)
