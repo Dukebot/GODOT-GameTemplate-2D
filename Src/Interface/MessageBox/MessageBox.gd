@@ -2,6 +2,8 @@ class_name MessageBox extends ColorRect
 
 signal text_animation_ended
 
+export var text_animation_speed: float = 50
+
 onready var label = find_node("Label")
 
 
@@ -17,7 +19,7 @@ func _ready():
 
 
 func _process(delta):
-	label.percent_visible += delta * 100 / label.text.length()
+	label.percent_visible += delta * text_animation_speed / label.text.length()
 	if label.percent_visible >= 1:
 		end_text_animation()
 
@@ -38,4 +40,3 @@ func end_text_animation():
 	set_process(false)
 	label.percent_visible = 1
 	emit_signal("text_animation_ended")
-	print("End animation signal emited")

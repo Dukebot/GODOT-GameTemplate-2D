@@ -22,15 +22,18 @@ func _ready():
 
 func _input(event):
 	if event.is_action_pressed("interact"):
-		if current_dialogue_index == dialogue_data.size():
-			end_dialogue()
+		if not dialogue_text_animating:
+			if current_dialogue_index == dialogue_data.size():
+				end_dialogue()
+			else:
+				show_dialogue_text()
+				dialogue_text_animating = true
 		else:
-			show_dialogue_text()
+			emit_signal("end_text_animation")
 
 
 func _on_text_animation_ended():
 	dialogue_text_animating = false
-	print("text animation end signal received")
 
 
 func load_dialogue(_dialogue_id: String):
@@ -45,6 +48,7 @@ func start_dialogue():
 		dialogue_running = true
 		emit_signal("dialogue_started")
 		show_dialogue_text()
+		dialogue_text_animating = true
 		set_process_input(true)
 
 
@@ -56,11 +60,7 @@ func end_dialogue():
 
 
 func show_dialogue_text():
-	if not dialogue_text_animating:
-		dialogue_text_animating = true
-		var speaker_name = dialogue_data[current_dialogue_index][0]
-		var text = dialogue_data[current_dialogue_index][1]
-		emit_signal("show_dialogue_text", speaker_name, text)
-		current_dialogue_index += 1
-	else:
-		emit_signal("end_text_animation")
+	var speaker_name = dialogue_data[current_dialogue_index][0]
+	var text = dialogue_data[current_dialogue_index][1]
+	emit_signal("show_dialogue_text", speaker_name, text)
+	current_dialogue_index += 1
