@@ -3,12 +3,14 @@ class_name DialogueComponent extends Node
 signal dialogue_started
 signal dialogue_ended
 signal show_dialogue_text(speaker_name, text)
+signal end_text_animation
 
 export (String) var dialogue_file_name = "dialogues.json"
 export (String) var dialogue_id = "test"
 
 var dialogue_data: Array
 var dialogue_running: bool = false
+var dialogue_text_animating: bool = false
 var current_dialogue_index: int = 0
 
 
@@ -24,6 +26,11 @@ func _input(event):
 			end_dialogue()
 		else:
 			show_dialogue_text()
+
+
+func _on_text_animation_ended():
+	dialogue_text_animating = false
+	print("text animation end signal received")
 
 
 func load_dialogue(_dialogue_id: String):
@@ -49,7 +56,11 @@ func end_dialogue():
 
 
 func show_dialogue_text():
-	var speaker_name = dialogue_data[current_dialogue_index][0]
-	var text = dialogue_data[current_dialogue_index][1]
-	emit_signal("show_dialogue_text", speaker_name, text)
-	current_dialogue_index += 1
+	if not dialogue_text_animating:
+		dialogue_text_animating = true
+		var speaker_name = dialogue_data[current_dialogue_index][0]
+		var text = dialogue_data[current_dialogue_index][1]
+		emit_signal("show_dialogue_text", speaker_name, text)
+		current_dialogue_index += 1
+	else:
+		emit_signal("end_text_animation")
